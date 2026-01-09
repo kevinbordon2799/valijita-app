@@ -1,0 +1,47 @@
+@import 'tailwindcss';
+
+:root {
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    color: #151517;
+}
+
+.bg-float {
+    background-color: #ffffff;
+}
+
+.shadow-float {
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 1em;
+}
+
+/* input:not([type='checkbox']):not([type='color']) {
+    background-color: white;
+    color: #151517;
+    border: 2px solid #cccccc;
+    border-radius: 0.7em;
+} */
+
+/* input:focus {
+    border: 2px solid #494949;
+} */
+
+label {
+    color: #151517;
+}
+
+/* select {
+    background-color: white;
+    color: #151517;
+    border: 2px solid #cccccc;
+    border-radius: 0.7em;
+} */
