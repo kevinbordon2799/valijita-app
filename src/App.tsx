@@ -4,6 +4,7 @@ import { CreateCategoryCard } from './components/CreateCategoryCard';
 import { FiltersCard } from './components/FiltersCard';
 import { Header } from './components/Header';
 import { TravelItemList } from './components/TravelItemList';
+import { TripStatusCard } from './components/TripStatusCard';
 import { CategoriesProvider } from './contexts/CategoriesContext';
 import { ConfirmModalProvider } from './contexts/ConfirmModalContext';
 import { TravelItemsProvider } from './contexts/TravelItemsContext';
@@ -24,6 +25,8 @@ function App() {
 
                             <CreateCategoryCard />
                         </div>
+
+                        <TripStatusCard /> 
 
                         <FiltersCard />
 

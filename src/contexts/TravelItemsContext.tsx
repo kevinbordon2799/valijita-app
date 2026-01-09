@@ -14,6 +14,7 @@ interface TravelItemsContextType {
     deleteItem: (id: string) => void;
 
     togglePacked: (id: string) => void;
+    unpackAll: () => void;
 
     setCategoryFilter: (category: string) => void;
     setOnlyPendingFilter: (value: boolean) => void;
@@ -25,11 +26,11 @@ export const TravelItemsProvider: React.FC<{ children: ReactNode }> = ({ childre
     const [items, setItems] = useState<TravelItem[]>(() => {
         const parsed = safeJsonParse(localStorage.getItem(ITEMS_KEY), []);
 
-        return parsed;         
+        return parsed;
     });
 
     const [filters, setFilters] = useState({
-        category: "all",
+        category: 'all',
         onlyPending: false,
     });
 
@@ -39,8 +40,8 @@ export const TravelItemsProvider: React.FC<{ children: ReactNode }> = ({ childre
     }, [items]);
 
     // Items filtrados automáticamente
-    const filteredItems = items.filter(item => {
-        const matchesCategory = filters.category === "all" || item.category === filters.category;
+    const filteredItems = items.filter((item) => {
+        const matchesCategory = filters.category === 'all' || item.category === filters.category;
         const matchesPending = !filters.onlyPending || !item.packed;
 
         return matchesPending && matchesCategory;
@@ -56,45 +57,51 @@ export const TravelItemsProvider: React.FC<{ children: ReactNode }> = ({ childre
             packed: false,
         };
 
-        setItems(prev => [...prev, newItem]);
+        setItems((prev) => [...prev, newItem]);
     };
 
     const togglePacked = (id: string) => {
-        setItems(prev =>
-            prev.map(item => (item.id === id ? { ...item, packed: !item.packed } : item))
+        setItems((prev) =>
+            prev.map((item) => (item.id === id ? { ...item, packed: !item.packed } : item))
         );
+    };
+
+    const unpackAll = () => {
+        setItems((prev) => prev.map((item) => ({ ...item, packed: false })));
     };
 
     const editItem = (id: string, data: { name: string; category: string }) => {
-        setItems(prev =>
-            prev.map(item => (item.id === id ? { ...item, ...data } : item))
-        );
+        setItems((prev) => prev.map((item) => (item.id === id ? { ...item, ...data } : item)));
     };
 
     const deleteItem = (id: string) => {
-        setItems(prev => prev.filter(item => item.id !== id));
+        setItems((prev) => prev.filter((item) => item.id !== id));
     };
 
-    const setCategoryFilter = (categoryName:string) => {
+    const setCategoryFilter = (categoryName: string) => {
         setFilters({
             ...filters,
             category: categoryName,
-        })
-    }
+        });
+    };
 
     const setOnlyPendingFilter = (showOnlyPending: boolean) => {
-        setFilters({...filters, onlyPending: showOnlyPending});
-    }
+        setFilters({ ...filters, onlyPending: showOnlyPending });
+    };
 
     return (
         <TravelItemsContext.Provider
             value={{
                 items,
                 filteredItems,
+
                 addItem,
-                togglePacked,
                 editItem,
                 deleteItem,
+
+                togglePacked,
+                unpackAll,
+
                 setCategoryFilter,
                 setOnlyPendingFilter,
             }}

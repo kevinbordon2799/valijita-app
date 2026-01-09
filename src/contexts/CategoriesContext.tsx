@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, type ReactNode } from 'react';
+import { createContext, useContext, useEffect, useState, type ReactNode } from 'react';
 import { APP_NAME } from '../consts/app-consts';
 import { safeJsonParse } from '../helpers/json.helpers';
 import type { Categories } from '../types';
@@ -32,11 +32,14 @@ export const CategoriesProvider: React.FC<{ children: ReactNode }> = ({ children
         return { ...uncategorized, ...base };
     });
 
+    useEffect(() => {
+        localStorage.setItem(KEY, JSON.stringify(categoriesObj));
+    }, [categoriesObj])
+
     const saveCategories = (categs: Categories) => {
         const merged = { ...uncategorized, ...categs };
 
         setCategoriesObj(merged);
-        localStorage.setItem(KEY, JSON.stringify(merged));
     };
 
     const addCategory = (name: string, color: string) => {

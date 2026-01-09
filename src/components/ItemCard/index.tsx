@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useCategories } from '../../contexts/CategoriesContext';
 import { useConfirmModal } from '../../contexts/ConfirmModalContext';
 import type { TravelItem } from '../../types';
+import { SelectInput } from '../SelectInput';
+import { TextInput } from '../TextInput';
 
 interface TravelItemCardProps {
     item: TravelItem;
@@ -27,15 +29,12 @@ export const TravelItemCard: React.FC<TravelItemCardProps> = ({
     const [editing, setEditing] = useState(false);
 
     const handleDeleteClick = () => {
-        openConfirm(
-            `¿Estás seguro que querés eliminar "${item.name}"?`,
-            () => deleteItem(item.id)
-        );
+        openConfirm(`¿Estás seguro que querés eliminar "${item.name}"?`, () => deleteItem(item.id));
     };
 
     const handleSave = () => {
         if (!editName.trim()) return;
-        
+
         editItem(item.id, { name: editName.trim(), category: editCategory });
         setEditing(false);
     };
@@ -65,7 +64,9 @@ export const TravelItemCard: React.FC<TravelItemCardProps> = ({
                         <button
                             onClick={() => togglePacked(item.id)}
                             className={`w-max flex px-3 py-2 rounded-md text-sm font-bold cursor-pointer ${
-                                item.packed ? 'text-green-600 bg-green-200' : 'text-red-600 bg-red-200'
+                                item.packed
+                                    ? 'text-green-600 bg-green-200'
+                                    : 'text-red-600 bg-red-200'
                             }`}
                         >
                             {item.packed ? '✅ Empacado' : '❌ Falta empacar'}
@@ -93,13 +94,14 @@ export const TravelItemCard: React.FC<TravelItemCardProps> = ({
             {/* Vista edición */}
             {editing && (
                 <div className="flex flex-col gap-3">
-                    <input
+                    <TextInput
                         value={editName}
                         onChange={(e) => setEditName(e.target.value)}
                         className="px-4 py-3 sm:col-span-2 rounded border border-gray-300"
                         placeholder="Nombre del item"
                     />
-                    <select
+
+                    <SelectInput
                         value={editCategory}
                         onChange={(e) => setEditCategory(e.target.value)}
                         className="px-4 py-3 rounded border border-gray-300"
@@ -109,7 +111,7 @@ export const TravelItemCard: React.FC<TravelItemCardProps> = ({
                                 {categoryName}
                             </option>
                         ))}
-                    </select>
+                    </SelectInput>
 
                     <div className="flex gap-2 justify-end pt-4">
                         <button

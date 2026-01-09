@@ -21,13 +21,13 @@ export const FiltersCard: React.FC = () => {
                         ))}
                     </SelectInput>
 
-                    <label className="bg-gray-100 flex items-center gap-3 rounded-md px-4 py-3 cursor-pointer w-max sm:w-auto">
+                    <label className="bg-gray-100 flex items-center gap-3 rounded-md px-4 py-3 cursor-pointer w-max sm:w-auto hover:bg-gray-200">
                         <input
                             type="checkbox"
                             onChange={(e) => setOnlyPendingFilter(e.target.checked)}
-                            className="w-5 h-5"
+                            className="w-5 h-5 cursor-pointer"
                         />
-                        <span>
+                        <span className='text-sm'>
                             Ver solo <span className="font-bold">"falta empacar"</span>
                         </span>
                     </label>

@@ -2,17 +2,17 @@ import React, { createContext, useContext, useState, type ReactNode } from 'reac
 import { Button } from '../components/Button';
 
 interface ConfirmModalContextType {
-    openConfirm: (message: string, onConfirm: () => void) => void;
+    openConfirm: (message: string | ReactNode, onConfirm: () => void) => void;
 }
 
 const ConfirmModalContext = createContext<ConfirmModalContextType | undefined>(undefined);
 
 export const ConfirmModalProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     const [show, setShow] = useState(false);
-    const [message, setMessage] = useState('');
+    const [message, setMessage] = useState<string | ReactNode>('');
     const [onConfirm, setOnConfirm] = useState<() => void>(() => {});
 
-    const openConfirm = (msg: string, confirmFn: () => void) => {
+    const openConfirm = (msg: string | ReactNode, confirmFn: () => void) => {
         setMessage(msg);
         setOnConfirm(() => confirmFn);
         setShow(true);
@@ -31,8 +31,8 @@ export const ConfirmModalProvider: React.FC<{ children: ReactNode }> = ({ childr
 
             {show && (
                 <div className="fixed inset-0 bg-[rgba(0,0,0,0.9)] bg-opacity-40 flex items-center justify-center z-50">
-                    <div className="bg-white px-10 py-6 rounded-lg w-100 max-w-[300px] text-center shadow-lg flex flex-col gap-4">
-                        <p className="text-md font-semibold leading-5">{message}</p>
+                    <div className="bg-white px-10 py-6 pt-8 rounded-lg w-100 max-w-[300px] text-center shadow-lg flex flex-col gap-4">
+                        <span className="text-md font-semibold leading-5">{message}</span>
 
                         <div className="flex gap-4 w-full">
                             <div className="w-1/2">

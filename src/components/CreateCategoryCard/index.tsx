@@ -58,7 +58,7 @@ export const CreateCategoryCard: React.FC = () => {
             />
 
             <div className="flex items-center justify-between">
-                <label htmlFor="newCategoryColor">Color de categoría:</label>
+                <label htmlFor="newCategoryColor" className='text-sm'>Color de categoría:</label>
                 <input
                     id="newCategoryColor"
                     type="color"
