@@ -6,7 +6,6 @@ export const TravelItemList: React.FC = () => {
     const { filteredItems, togglePacked, editItem, deleteItem } = useTravelItems();
 
     return (
-        // <div className="w-full mx-auto max-w-[900px] space-y-10 mt-10 py-15 mb-10 rounded-2xl border border-gray-200 bg-white shadow-sm px-6">
         <div className="w-full mx-auto max-w-[900px] space-y-10 mt-6 py-15 mb-10 bg-white px-6">
             <div>
                 <h2 className="text-3xl font-bold text-center">Lista de objetos agregados:</h2>
@@ -21,7 +20,7 @@ export const TravelItemList: React.FC = () => {
             )}
 
             {filteredItems.length > 0 && (
-                <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className=" grid grid-cols-1 md:grid-cols-2 gap-6">
                     {filteredItems.map((item) => (
                         <TravelItemCard
                             key={item.id}
