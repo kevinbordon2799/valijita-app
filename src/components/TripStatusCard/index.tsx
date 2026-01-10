@@ -1,10 +1,14 @@
+import { useState } from 'react';
 import { useConfirmModal } from '../../contexts/ConfirmModalContext';
 import { useTravelItems } from '../../contexts/TravelItemsContext';
 import { Button } from '../Button';
+import { ArrivalCelebration } from '../ArrivalCelebration';
 
 export const TripStatusCard: React.FC = () => {
     const { openConfirm } = useConfirmModal();
     const { unpackAll } = useTravelItems();
+
+    const [showArrivalCelebration, setShowArrivalCelebration] = useState(false);
 
     const handleArrivedAtDestination = () => {
         openConfirm(
@@ -16,9 +20,14 @@ export const TripStatusCard: React.FC = () => {
             </div>,
             () => {
                 unpackAll();
+                setShowArrivalCelebration(true);
             }
         );
     };
+
+    const handleFinishArrivalCelebration = () => {
+        setShowArrivalCelebration(false);
+    }
 
     return (
         <div className="w-full max-w-[800px] mx-auto mt-6 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
@@ -42,6 +51,11 @@ export const TripStatusCard: React.FC = () => {
                 {`Esto va a marcar todos los ítems como `}
                 <span className="font-bold">no empacados.</span>
             </p>
+
+            <ArrivalCelebration 
+                isVisible={showArrivalCelebration}
+                onFinish={handleFinishArrivalCelebration}
+            />
         </div>
     );
 };
