@@ -1,7 +1,6 @@
 import './App.css';
 import { AddItemCard } from './components/AddItemCard';
 import { CreateCategoryCard } from './components/CreateCategoryCard';
-import { FiltersCard } from './components/FiltersCard';
 import { Header } from './components/Header';
 import { TravelItemList } from './components/TravelItemList';
 import { TripStatusCard } from './components/TripStatusCard';
