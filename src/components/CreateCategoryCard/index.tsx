@@ -47,7 +47,7 @@ export const CreateCategoryCard: React.FC = () => {
     };
 
     return (
-        <div className="shadow-float flex flex-col bg-float p-6 gap-3 w-full">
+        <div className="flex flex-col gap-3 w-full rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
             <FloatCardTitle>Nueva categoría</FloatCardTitle>
 
             <TextInput

@@ -8,7 +8,7 @@ export const FiltersCard: React.FC = () => {
 
     return (
         <div className="pt-10">
-            <div className="flex flex-col mx-auto p-6 max-w-[800px] sm:flex-row sm:items-center sm:justify-between gap-3 bg-float shadow-float">
+            <div className="flex flex-col mx-auto p-6 max-w-[800px] sm:flex-row sm:items-center sm:justify-between gap-3 rounded-2xl border border-gray-200 bg-white shadow-sm">
                 <p className="py-2 text-center text-md font-bold md:font-lg">Filtros:</p>
 
                 <div className="flex flex-col gap-4 sm:flex-row">
