@@ -47,12 +47,18 @@ export const TravelItemCard: React.FC<TravelItemCardProps> = ({
 
     return (
         <div
-            className="rounded-2xl border border-gray-200 bg-white shadow-sm px-6 py-8 rounded-xl flex flex-col gap-4 border-t-8 relative"
-            style={{ borderTopColor: categoryColor }}
+            className="border border-gray-200 bg-white shadow-sm px-6 py-8 rounded-xl flex flex-col gap-4 relative"
+
+            style={{
+                // borderColor: categoryColor,
+                // borderWidth: "1px"
+                boxShadow: `0px 0px 8px 1px ${categoryColor}`
+            }}
         >
             {/* Vista normal */}
             {!editing && (
                 <div className="flex flex-col gap-4">
+                    <div className='h-[3px] w-full relative top-[-0%]' style={{backgroundColor: categoryColor}}></div>
                     <div>
                         <h3 className="text-2xl font-bold">{item.name}</h3>
                         <span className="relative top-[-0.3rem] text-sm text-zinc-400">
