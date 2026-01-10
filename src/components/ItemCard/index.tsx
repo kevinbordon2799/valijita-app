@@ -77,7 +77,7 @@ export const TravelItemCard: React.FC<TravelItemCardProps> = ({
                         >
                             {item.packed 
                                 ? (<><FaCheckCircle size={16} /> <span>Empacado</span></>)
-                                : (<><FaWindowClose size={16}/> <span>Empacado</span></>)
+                                : (<><FaWindowClose size={16}/> <span>Falta empacar</span></>)
                             }
                         </button>
 
