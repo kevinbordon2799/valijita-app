@@ -5,6 +5,7 @@ import { Button } from '../Button';
 import { FloatCardTitle } from '../FloatCardTitle';
 import { SelectInput } from '../SelectInput';
 import { TextInput } from '../TextInput';
+import { IoBagAdd } from 'react-icons/io5';
 
 export const AddItemCard: React.FC = () => {
     const { categories } = useCategories();
@@ -44,7 +45,10 @@ export const AddItemCard: React.FC = () => {
             </SelectInput>
 
             <div className="flex justify-end pt-4 bg-red">
-                <Button.Purpple onClick={handleAdd}>Agregar</Button.Purpple>
+                <Button.Purpple className='flex items-center justify-center gap-1' onClick={handleAdd}>
+                    <span className='relative top-[2%]'>Agregar a la valija</span>
+                    <IoBagAdd className='text-lg' />
+                </Button.Purpple>
             </div>
         </div>
     );
