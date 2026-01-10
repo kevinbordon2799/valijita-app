@@ -59,7 +59,9 @@ export const CreateCategoryCard: React.FC = () => {
             />
 
             <div className="flex items-center justify-between">
-                <label htmlFor="newCategoryColor" className='text-sm'>Color de categoría:</label>
+                <label htmlFor="newCategoryColor" className="text-sm">
+                    Color de categoría:
+                </label>
                 <input
                     id="newCategoryColor"
                     type="color"
@@ -72,9 +74,12 @@ export const CreateCategoryCard: React.FC = () => {
             {error && <p className="text-red-500 text-sm">{error}</p>}
 
             <div className="flex pt-4">
-                <Button.Purpple className='flex items-center justify-center gap-1'>
-                    <span className='relative'>Crear categoría</span>
-                    <BiSolidCategory className='text-lg' />
+                <Button.Purpple
+                    className="flex items-center justify-center gap-1"
+                    onClick={handleCreate}
+                >
+                    <span className="relative">Crear categoría</span>
+                    <BiSolidCategory className="text-lg" />
                 </Button.Purpple>
             </div>
         </div>
