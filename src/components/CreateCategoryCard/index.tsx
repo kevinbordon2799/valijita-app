@@ -3,6 +3,7 @@ import { Button } from '../Button';
 import { FloatCardTitle } from '../FloatCardTitle';
 import { TextInput } from '../TextInput';
 import { useCategories } from '../../contexts/CategoriesContext';
+import { BiSolidCategory } from 'react-icons/bi';
 
 export const CreateCategoryCard: React.FC = () => {
     const { categories, addCategory } = useCategories();
@@ -71,7 +72,10 @@ export const CreateCategoryCard: React.FC = () => {
             {error && <p className="text-red-500 text-sm">{error}</p>}
 
             <div className="flex pt-4">
-                <Button.Purpple onClick={handleCreate}>Crear categoría</Button.Purpple>
+                <Button.Purpple className='flex items-center justify-center gap-1'>
+                    <span className='relative'>Crear categoría</span>
+                    <BiSolidCategory className='text-lg' />
+                </Button.Purpple>
             </div>
         </div>
     );
