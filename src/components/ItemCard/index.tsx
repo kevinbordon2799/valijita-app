@@ -4,6 +4,9 @@ import { useConfirmModal } from '../../contexts/ConfirmModalContext';
 import type { TravelItem } from '../../types';
 import { SelectInput } from '../SelectInput';
 import { TextInput } from '../TextInput';
+import { Button } from '../Button';
+import { FaCheckCircle, FaEdit, FaWindowClose } from 'react-icons/fa';
+import { MdDelete } from 'react-icons/md';
 
 interface TravelItemCardProps {
     item: TravelItem;
@@ -67,28 +70,32 @@ export const TravelItemCard: React.FC<TravelItemCardProps> = ({
                     <div className="flex justify-between pt-2 items-center">
                         <button
                             onClick={() => togglePacked(item.id)}
-                            className={`w-max flex rounded-md text-xs sm:text-sm font-bold cursor-pointer ${
+                            className={`w-max flex rounded-md text-xs sm:text-sm font-bold items-center gap-1 cursor-pointer ${
                                 item.packed
                                     ? 'text-green-600 hover:underline hover:text-shadow-green-600 hover:text-shadow-xs focus:underline focus:text-shadow-green-600 focus:text-shadow-xs'
                                     : 'text-red-600 hover:underline hover:text-shadow-red-600 hover:text-shadow-xs focus:underline focus:text-shadow-red-600 focus:text-shadow-xs'
                             }`}
                         >
-                            {item.packed ? '✅ Empacado' : '❌ Falta empacar'}
+                            {item.packed 
+                                ? (<><FaCheckCircle size={16} /> <span>Empacado</span></>)
+                                : (<><FaWindowClose size={16}/> <span>Empacado</span></>)
+                            }
                         </button>
 
                         <div className="flex justify-between gap-2">
-                            {/* <button
+                            <button
                                 onClick={() => setEditing(true)}
-                                className="px-4 py-2 bg-blue-100 text-blue-800 cursor-pointer text-sm rounded-md font-semibold hover:bg-blue-200"
+                                className="px-3 py-2 bg-blue-100 text-blue-800 cursor-pointer text-sm rounded-md font-semibold hover:bg-blue-200"
                             >
-                                Editar
-                            </button> */}
+                                <FaEdit size={16} />
+                            </button>
 
                             <button
                                 onClick={handleDeleteClick}
-                                className="px-4 py-2 bg-red-200 text-red-700 cursor-pointer text-sm rounded-md font-semibold hover:bg-red-300"
+                                className="flex items-center gap-1 px-4 py-2 bg-red-200 text-xs text-red-700 cursor-pointer sm:text-sm rounded-md font-semibold hover:bg-red-300"
                             >
-                                Eliminar
+                                <span className='relative top-[10%]'>Eliminar</span>
+                                <MdDelete size={16}/>
                             </button>
                         </div>
                     </div>
