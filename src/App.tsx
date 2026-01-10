@@ -17,8 +17,8 @@ function App() {
             <CategoriesProvider>
                 <TravelItemsProvider>
                     <Header />
-                    
-                    <div className="bg-gray-100 min-h-screen p-4 pt-0 sm:pt-0 sm:p-6 pb-20">
+
+                    <div className="bg-gray-100 px-4 pt-0 pb-10 sm:px-6">
                         <div className="flex flex-col md:flex-row gap-6 w-full max-w-[800px] mx-auto pt-10">
                             <AddItemCard />
 
@@ -26,9 +26,9 @@ function App() {
                         </div>
 
                         <TripStatusCard />
-
-                        <TravelItemList />
                     </div>
+
+                    <TravelItemList />
                 </TravelItemsProvider>
             </CategoriesProvider>
         </ConfirmModalProvider>
