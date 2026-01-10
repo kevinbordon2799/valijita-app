@@ -49,7 +49,6 @@ export const TravelItemCard: React.FC<TravelItemCardProps> = ({
         <div className="border-2 border-gray-200 bg-white shadow-md px-6 py-8 rounded-xl flex flex-col gap-4 relative">
             {/* Vista normal */}
             {!editing && (
-                // <div className="flex flex-col gap-4">
                 <div className="flex flex-col">
                     <div
                         className="h-[10px] w-full relative top-[-0%] opacity-100"
@@ -63,29 +62,27 @@ export const TravelItemCard: React.FC<TravelItemCardProps> = ({
                                 {item.category}
                             </span>
                         </div>
-
-                        <div className="pb-2">
-                            <button
-                                onClick={() => togglePacked(item.id)}
-                                className={`absolute right-[6%] top-[32%] w-max flex py-2 px-2 rounded-md text-xs font-bold cursor-pointer ${
-                                    item.packed
-                                        ? 'text-green-600 hover:bg-green-200'
-                                        : 'text-red-600 hover:bg-red-200'
-                                }`}
-                            >
-                                {item.packed ? '✅ Empacado' : '❌ Falta empacar'}
-                            </button>
-                        </div>
                     </div>
 
-                    <div className="flex justify-end pt-2">
-                        <div className="flex justify-end gap-2">
-                            <button
+                    <div className="flex justify-between pt-2 items-center">
+                        <button
+                            onClick={() => togglePacked(item.id)}
+                            className={`w-max flex rounded-md text-xs sm:text-sm font-bold cursor-pointer ${
+                                item.packed
+                                    ? 'text-green-600 hover:underline hover:text-shadow-green-600 hover:text-shadow-xs focus:underline focus:text-shadow-green-600 focus:text-shadow-xs'
+                                    : 'text-red-600 hover:underline hover:text-shadow-red-600 hover:text-shadow-xs focus:underline focus:text-shadow-red-600 focus:text-shadow-xs'
+                            }`}
+                        >
+                            {item.packed ? '✅ Empacado' : '❌ Falta empacar'}
+                        </button>
+
+                        <div className="flex justify-between gap-2">
+                            {/* <button
                                 onClick={() => setEditing(true)}
                                 className="px-4 py-2 bg-blue-100 text-blue-800 cursor-pointer text-sm rounded-md font-semibold hover:bg-blue-200"
                             >
                                 Editar
-                            </button>
+                            </button> */}
 
                             <button
                                 onClick={handleDeleteClick}
