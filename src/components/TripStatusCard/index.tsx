@@ -3,6 +3,7 @@ import { useConfirmModal } from '../../contexts/ConfirmModalContext';
 import { useTravelItems } from '../../contexts/TravelItemsContext';
 import { Button } from '../Button';
 import { ArrivalCelebration } from '../ArrivalCelebration';
+import { FaLocationDot } from 'react-icons/fa6';
 
 export const TripStatusCard: React.FC = () => {
     const { openConfirm } = useConfirmModal();
@@ -42,8 +43,13 @@ export const TripStatusCard: React.FC = () => {
             <div className="my-4 h-px w-full bg-gray-100" />
 
             {/* Botón principal */}
-            <Button.Blue type="button" onClick={handleArrivedAtDestination}>
-                Ya llegué al destino 🧳
+            <Button.Blue 
+                type='button'
+                className='flex items-center justify-center gap-1'
+                onClick={handleArrivedAtDestination}
+            >
+                <span>Ya llegué al destino</span>
+                <FaLocationDot className='text-md'/>
             </Button.Blue>
 
             {/* Nota visual */}
