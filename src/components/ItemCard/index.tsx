@@ -47,7 +47,7 @@ export const TravelItemCard: React.FC<TravelItemCardProps> = ({
 
     return (
         <div
-            className="bg-float px-6 py-8 rounded-xl flex flex-col gap-4 border-t-8 relative"
+            className="rounded-2xl border border-gray-200 bg-white shadow-sm px-6 py-8 rounded-xl flex flex-col gap-4 border-t-8 relative"
             style={{ borderTopColor: categoryColor }}
         >
             {/* Vista normal */}

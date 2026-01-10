@@ -9,7 +9,7 @@ export const TravelItemList: React.FC = () => {
     }
 
     return (
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 py-10">
+        <div className="w-full mx-auto max-w-[800px] grid grid-cols-1 lg:grid-cols-2 gap-4 py-10">
             {filteredItems.map((item) => (
                 <TravelItemCard
                     key={item.id}
