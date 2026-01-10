@@ -47,11 +47,11 @@ export const TravelItemCard: React.FC<TravelItemCardProps> = ({
 
     return (
         <div
-            className="border border-gray-200 bg-white shadow-sm px-6 py-8 rounded-xl flex flex-col gap-4 relative"
+            className="border border-gray-200 bg-white shadow-md px-6 py-8 rounded-xl flex flex-col gap-4 relative"
 
             style={{
                 // borderColor: categoryColor,
-                borderWidth: "3px"
+                // borderWidth: "3px"
                 // boxShadow: `0px 0px 8px 2px ${categoryColor}`
             }}
         >

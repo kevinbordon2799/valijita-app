@@ -28,8 +28,6 @@ function App() {
 
                         <TripStatusCard />
 
-                        <FiltersCard />
-
                         <TravelItemList />
                     </div>
                 </TravelItemsProvider>
