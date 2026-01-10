@@ -46,33 +46,39 @@ export const TravelItemCard: React.FC<TravelItemCardProps> = ({
     };
 
     return (
-        <div
-            className="border border-gray-200 bg-white shadow-md px-6 py-8 rounded-xl flex flex-col gap-4 relative"
-        >
+        <div className="border-2 border-gray-200 bg-white shadow-md px-6 py-8 rounded-xl flex flex-col gap-4 relative">
             {/* Vista normal */}
             {!editing && (
-                <div className="flex flex-col gap-4">
-                    <div className='h-[10px] w-full relative top-[-0%] opacity-100' style={{backgroundColor: categoryColor}}></div>
+                // <div className="flex flex-col gap-4">
+                <div className="flex flex-col">
+                    <div
+                        className="h-[10px] w-full relative top-[-0%] opacity-100"
+                        style={{ backgroundColor: categoryColor }}
+                    ></div>
 
-                    <div>
-                        <h3 className="text-2xl font-bold">{item.name}</h3>
-                        <span className="relative top-[-0.3rem] text-sm text-zinc-400">
-                            {item.category}
-                        </span>
+                    <div className="flex flex-row pt-4 justify-between items-center">
+                        <div>
+                            <h3 className="text-md sm:text-xl font-bold">{item.name}</h3>
+                            <span className="relative top-[-0.3rem] text-sm text-zinc-400">
+                                {item.category}
+                            </span>
+                        </div>
+
+                        <div className="pb-2">
+                            <button
+                                onClick={() => togglePacked(item.id)}
+                                className={`absolute right-[6%] top-[32%] w-max flex py-2 px-2 rounded-md text-xs font-bold cursor-pointer ${
+                                    item.packed
+                                        ? 'text-green-600 hover:bg-green-200'
+                                        : 'text-red-600 hover:bg-red-200'
+                                }`}
+                            >
+                                {item.packed ? '✅ Empacado' : '❌ Falta empacar'}
+                            </button>
+                        </div>
                     </div>
 
-                    <div className="flex justify-between">
-                        <button
-                            onClick={() => togglePacked(item.id)}
-                            className={`w-max flex px-3 py-2 rounded-md text-sm font-bold cursor-pointer ${
-                                item.packed
-                                    ? 'text-green-600 bg-green-200'
-                                    : 'text-red-600 bg-red-200'
-                            }`}
-                        >
-                            {item.packed ? '✅ Empacado' : '❌ Falta empacar'}
-                        </button>
-
+                    <div className="flex justify-end pt-2">
                         <div className="flex justify-end gap-2">
                             <button
                                 onClick={() => setEditing(true)}
