@@ -51,14 +51,20 @@ export const TravelItemCard: React.FC<TravelItemCardProps> = ({
 
             style={{
                 // borderColor: categoryColor,
-                // borderWidth: "1px"
-                boxShadow: `0px 0px 8px 1px ${categoryColor}`
+                borderWidth: "3px"
+                // boxShadow: `0px 0px 8px 2px ${categoryColor}`
             }}
         >
             {/* Vista normal */}
             {!editing && (
                 <div className="flex flex-col gap-4">
-                    <div className='h-[3px] w-full relative top-[-0%]' style={{backgroundColor: categoryColor}}></div>
+                    <div className='h-[10px] w-full relative top-[-0%] opacity-100' style={{backgroundColor: categoryColor}}></div>
+
+                    {/* <div className='relative top-[-0%] w-full opacity-100' style={{
+                        backgroundColor: categoryColor,
+                        boxShadow: `0px 0px 2px 1px ${categoryColor}`
+                    }}></div> */}
+
                     <div>
                         <h3 className="text-2xl font-bold">{item.name}</h3>
                         <span className="relative top-[-0.3rem] text-sm text-zinc-400">
