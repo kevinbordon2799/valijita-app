@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18",
+    "@types/react-icons": "^2.2.7",
     "@types/tailwindcss": "^3.0.11",
     "framer-motion": "^12.25.0",
     "react": "^19.2.0",
