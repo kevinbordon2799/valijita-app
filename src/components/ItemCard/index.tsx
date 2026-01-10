@@ -93,7 +93,7 @@ export const TravelItemCard: React.FC<TravelItemCardProps> = ({
                                 onClick={handleDeleteClick}
                                 className="flex items-center gap-1 px-4 py-2 bg-red-200 text-xs text-red-700 cursor-pointer sm:text-sm rounded-md font-semibold hover:bg-red-300"
                             >
-                                <span className='relative top-[10%]'>Eliminar</span>
+                                <span className='relative top-[10%] sm:top-[2%]'>Eliminar</span>
                                 <MdDelete size={16}/>
                             </button>
                         </div>
